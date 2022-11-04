@@ -1,0 +1,7 @@
+export default{
+    LOGIN:"LOGIN",
+    SIGNUP:"SIGNUP",
+    ONBOARDING:"ONBOARDING",
+    HOME:"HOME",
+    ADDTASK:"ADDTASK"
+}
