@@ -1,6 +1,7 @@
-import React from "react";
-import { Image, StyleSheet, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import colorsPath from "../constants/colorsPath";
+import imagePath from "../constants/imagePath";
 import { moderateScale, moderateScaleVertical, textScale } from "../styles/resposnsiveSize";
 
 
@@ -9,8 +10,15 @@ export const TextInputComp =({
     inputStyle,
     placeholder,
     image,
+    secure,
+    secondImage,
     onChangeText=()=>{}
 })=>{
+
+    const [visible,setVisible]=useState(!visible)
+    const click =(()=>{
+        setVisible(!visible)
+    })
 return(
     <View 
     style={{...styles.container,...inputStyle}}
@@ -19,8 +27,15 @@ return(
         style={{flex:1}}
         placeholder={placeholder}
         fontSize={textScale(16)}
+        secureTextEntry={visible}
         />
-        <Image source={image} style={styles.imageStyle}/>
+        <TouchableOpacity onPress={click}>
+        {visible?<Image style={styles.imageStyle}
+        source={image} 
+        />: <Image style={{height:20,width:20,tintColor:'grey'}}
+        source={secondImage}
+        />}
+        </TouchableOpacity>
 
     </View>
 )

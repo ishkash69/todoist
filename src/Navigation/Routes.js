@@ -9,11 +9,13 @@ const Routes = ()=>{
     return(
         <NavigationContainer>
         <Stack.Navigator 
+        screenOptions={{headerShown:false}}
         initialRouteName={navigationStrings.ONBOARDING}
         >
             <Stack.Screen name ={navigationStrings.SIGNUP} component={Screens.SignUp}/>
             <Stack.Screen name ={navigationStrings.LOGIN} component={Screens.Login}/>
             <Stack.Screen name ={navigationStrings.ONBOARDING} component={Screens.OnBoarding}/>
+            <Stack.Screen name ={navigationStrings.REMINDER} component= {Screens.Reminder}/>
         </Stack.Navigator>
     </NavigationContainer>
     )

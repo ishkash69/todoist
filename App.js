@@ -2,15 +2,14 @@ import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import colorsPath from "./src/constants/colorsPath";
 import Routes from "./src/Navigation/Routes";
-import { Login, OnBoarding } from "./src/Screens";
+import { Login, OnBoarding, SignUp } from "./src/Screens";
 
 
 const App =()=>{
   return(
     <SafeAreaView style={styles.container}>
-      {/* <Routes/> */}
-      {/* <Login/> */}
-      <OnBoarding/>
+      <Routes/>
+      
     </SafeAreaView>
   )
 }

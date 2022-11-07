@@ -34,6 +34,7 @@ const SignUp = () => {
                     placeholder={"Password"}
                     inputStyle={styles.inputStyle}
                     image={imagePath.ic_eye_hide}
+                    secondImage={imagePath.ic_eye_view}
                 />
             </View>
 

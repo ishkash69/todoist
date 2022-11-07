@@ -10,12 +10,14 @@ import { moderateScale, moderateScaleVertical, textScale } from '../styles/respo
 const ButtonComp = (
 
     {
-        title
+        title,
+        onPress
     }
 ) => {
     return (
 
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity onPress={onPress}
+        style={styles.container}>
             <Text style={styles.txtStyle}>{title}</Text>
         </TouchableOpacity>
     );

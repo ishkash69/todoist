@@ -3,5 +3,5 @@ export default{
     SIGNUP:"SIGNUP",
     ONBOARDING:"ONBOARDING",
     HOME:"HOME",
-    ADDTASK:"ADDTASK"
+    REMINDER:"REMINDER"
 }

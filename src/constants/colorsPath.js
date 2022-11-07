@@ -1,7 +1,8 @@
 export default{
     purple:"#5f5bd3",
     backGroundColor:"#f1f1f5",
-    white:"#ffff",
+    white:"#fff",
     grey:'#D3D3D3',
-    darkGrey:"darkgrey"
+    darkGrey:"darkgrey",
+    black:"#000"
 }

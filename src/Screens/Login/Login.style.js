@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
         marginTop: moderateScaleVertical(20)
     },
     forgetpw: {
-        marginTop: 5,
-        flexWrap: 'wrap'
+        marginTop: moderateScaleVertical(5),
+        alignSelf: "flex-end"
     },
     donthaveAccount: {
         justifyContent: 'flex-end',

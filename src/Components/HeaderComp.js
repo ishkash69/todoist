@@ -1,14 +1,21 @@
 import React from "react";
-import { View ,Text, StyleSheet} from "react-native";
+import { View ,Text, StyleSheet, Image} from "react-native";
 import colorsPath from "../constants/colorsPath";
 import { moderateScale } from "../styles/resposnsiveSize";
 
 export const HeaderComp =({
-    text
+    text,
+    image,
+    headerStyle,
+    textStyle
 })=>{
     return(
-        <View style={styles.container}>
-            <Text style={styles.textStyles}>{text}</Text>
+        <View style={{...styles.container,...headerStyle}}>
+
+            <Image
+            source={image}
+            />
+            <Text style={{...styles.textStyles,...textStyle}}>{text}</Text>
 
         </View>
     )
@@ -16,7 +23,8 @@ export const HeaderComp =({
 const styles =StyleSheet.create({
     container:{
         alignItems:"center",
-        justifyContent:"center"
+        justifyContent:"center",
+        flexDirection:"row"
     },
     textStyles:{
         fontSize:34,

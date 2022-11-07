@@ -5,10 +5,11 @@ import { HeaderComp } from "../../Components/HeaderComp";
 import { TextInputComp } from "../../Components/TextInputComp";
 import colorsPath from "../../constants/colorsPath";
 import imagePath from "../../constants/imagePath";
-import { moderateScaleVertical,} from "../../styles/resposnsiveSize";
+import navigationStrings from "../../constants/navigationStrings";
+import { moderateScaleVertical, } from "../../styles/resposnsiveSize";
 import styles from "./Login.style";
-const Login = () =>{
-    return(
+const Login = ({ navigation, routes }) => {
+    return (
         <View style={styles.container}>
 
             <HeaderComp
@@ -19,12 +20,15 @@ const Login = () =>{
             <View style={styles.inputContainer}>
                 <TextInputComp
                     placeholder={"E-mail Address"}
+                    
                 />
-            
+
                 <TextInputComp
                     placeholder={"Password"}
                     inputStyle={styles.inputStyle}
-                    image={imagePath.ic_eye_hide}
+                   image={imagePath.ic_eye_hide}
+                    secondImage={imagePath.ic_eye_view}
+                   
                 />
             </View>
 
@@ -39,20 +43,22 @@ const Login = () =>{
                 />
             </View>
 
-            
+
 
             <View style={styles.donthaveAccount}>
                 <View style={{ flexDirection: "row" }}>
                     <Text>
                         Don't have an account?
                     </Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() =>
+                            navigation.navigate(navigationStrings.SIGNUP)
+                        }
+                    >
                         <Text style={{ color: colorsPath.purple, fontWeight: "bold" }}> Sign Up</Text>
                     </TouchableOpacity>
                 </View>
             </View>
-
-
 
         </View>
     )
