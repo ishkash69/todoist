@@ -2,14 +2,16 @@ import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import colorsPath from "./src/constants/colorsPath";
 import Routes from "./src/Navigation/Routes";
-import { Login, OnBoarding, SignUp } from "./src/Screens";
+import { Provider } from "react-redux";
+import store from "./src/redux/store";
 
 
 const App =()=>{
   return(
     <SafeAreaView style={styles.container}>
-      <Routes/>
-      
+      <Provider store={store}>
+    <Routes/>
+    </Provider>
     </SafeAreaView>
   )
 }

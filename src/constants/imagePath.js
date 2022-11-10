@@ -7,14 +7,16 @@ export default {
     icApple:require('../assets/images/ic_apple.png'),
     icFb:require('../assets/images/ic_facebook.png'),
     icMail:require('../assets/images/ic_mail.png'),
-    icPlus:require('../assets/images/Group 4.png'),
+    icPlus:require('../assets/images/plus.png'),
     icHome:require('../assets/images/ic_home1.png'),
     icAlarm:require('../assets/images/ic_time1.png'),
     icCalender:require('../assets/images/ic_calender.png'),
     icForward:require('../assets/images/ic_back1.png'),
     icBackward:require('../assets/images/ic_back.png'),
     icTick:require('../assets/images/ic_tick.png'),
-    icProfile:require('../assets/images/ic_tick.png'),
+    icProfile:require('../assets/images/ic_account.png'),
+    icGreenTick:require("../assets/images/ic_tick2.png"),
+    icSpinner:require('../assets/images/spinner.png')
 
 
 }

@@ -6,10 +6,11 @@ import SocialComp from "../../Components/SocialButton";
 import { TextInputComp } from "../../Components/TextInputComp";
 import colorsPath from "../../constants/colorsPath";
 import imagePath from "../../constants/imagePath";
+import navigationStrings from "../../constants/navigationStrings";
 import { moderateScaleVertical, textScale } from "../../styles/resposnsiveSize";
 import styles from "./SignUp.style";
 
-const SignUp = () => {
+const SignUp = ({navigation,routes}) => {
     return (
         <View style={styles.container}>
 
@@ -44,6 +45,9 @@ const SignUp = () => {
 
             <View style={styles.buttonContainer}>
                 <ButtonComp
+                onPress={()=>{
+                    navigation.navigate(navigationStrings.LOGIN)
+                }}
                     title={"Sign Up"}
                 />
             </View>
@@ -71,7 +75,11 @@ const SignUp = () => {
                     <Text>
                         Already have an account?
                     </Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={()=>{
+                        navigation.navigate(navigationStrings.LOGIN)
+                    }}
+                    >
                         <Text style={{ color: colorsPath.purple, fontWeight: "bold" }}> Log In</Text>
                     </TouchableOpacity>
                 </View>

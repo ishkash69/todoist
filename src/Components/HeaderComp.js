@@ -1,5 +1,5 @@
 import React from "react";
-import { View ,Text, StyleSheet, Image} from "react-native";
+import { View ,Text, StyleSheet, Image, TouchableOpacity} from "react-native";
 import colorsPath from "../constants/colorsPath";
 import { moderateScale } from "../styles/resposnsiveSize";
 
@@ -7,14 +7,19 @@ export const HeaderComp =({
     text,
     image,
     headerStyle,
-    textStyle
+    textStyle,
+    onPress=()=>{}
 })=>{
     return(
         <View style={{...styles.container,...headerStyle}}>
 
-            <Image
+          <TouchableOpacity
+          
+          onPress={onPress}>
+          <Image
             source={image}
             />
+          </TouchableOpacity>
             <Text style={{...styles.textStyles,...textStyle}}>{text}</Text>
 
         </View>

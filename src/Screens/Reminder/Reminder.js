@@ -1,21 +1,39 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Image, TouchableOpacity, } from "react-native";
+import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import Modal from "react-native-modal";
+import { useSelector } from "react-redux";
 import ButtonComp from "../../Components/ButtonComp";
 import { HeaderComp } from "../../Components/HeaderComp";
 import colorsPath from "../../constants/colorsPath";
 import imagePath from "../../constants/imagePath";
+import navigationStrings from "../../constants/navigationStrings";
+import { todo } from "../../redux/actions";
+import store from "../../redux/store";
 import { moderateScale, moderateScaleVertical } from "../../styles/resposnsiveSize";
 import { styles } from "./Reminder.style";
-import Modal from "react-native-modal";
 
 
 
-const Reminder = () => {
-    const [isModelVisible,setModal]=useState(false)
+const Reminder = ({ navigation, route }) => {
+    const data = useSelector(myData => myData.todoData)
 
-    const onAdd=()=>{
-        setModal(!isModelVisible)
+    console.log("todo data", data)
+
+    const[title, setTitle]=useState('')
+    const[notes, setNotes]=useState('')
+
+    const [isModalVisible, setModal] = useState(false)
+    const onAdd = () => {
+        setModal(!isModalVisible)
     }
+    const onModalClick = () => {
+        store.dispatch(todo({title,notes}))
+        setModal(!isModalVisible)
+        // navigation.navigate(navigationStrings.HOME)
+    }
+
+
+    
 
     return (
         <View style={styles.container}>
@@ -24,15 +42,31 @@ const Reminder = () => {
                 text={"New Reminder"}
                 textStyle={styles.headerText}
                 headerStyle={styles.headerStyle}
+                onPress={() => {
+                    navigation.navigate(navigationStrings.HOME)
+                }}
             />
             <View style={styles.inputContainer}>
                 <TextInput style={{ color: colorsPath.black, padding: 24 }}
                     placeholder="Title"
+                    value={title}
+                    onChangeText={(title)=>{
+                        setTitle({title:title})
+                        console.log('this is title===>>><><>',title)
+                    }}
+
+
                 />
                 <View style={styles.underline} />
                 <TextInput style={styles.txtContainer}
                     multiline={true}
                     placeholder="Notes"
+                    value={notes}
+                    onChangeText={(notes)=>{
+                        setNotes({notes:notes})
+                        console.log('this is notes===>>><><>',notes)
+                    }}
+
                 />
             </View>
             <View style={styles.details}>
@@ -65,38 +99,39 @@ const Reminder = () => {
                     onPress={onAdd}
                     title='Add' />
             </View>
-            <Modal isVisible={isModelVisible} >
-            
-                <View style={{
-                    flex:1,
-                    justifyContent:"center",
-                    alignSelf:"center",
-                    }}>
-                <TouchableOpacity onPress={onAdd}
-                
-                style={{
-                    height:160,
-                    width:160,
-                    backgroundColor:colorsPath.purple,
-                    justifyContent:"center",
-                    alignItems:"center",
-                    borderRadius:8,
-                 
-                }}
-                >
-                    <Image source={imagePath.icTick}/>
-                    <Text style={{
-                        textAlign:"center",
-                        color:colorsPath.white,
-                        fontWeight:"bold",
-                        marginTop:moderateScaleVertical(8)}}>
-                        Your reminder has been added
-                    </Text>
+            <Modal isVisible={isModalVisible} >
 
-                </TouchableOpacity>
+                <View style={{
+                    flex: 1,
+                    justifyContent: "center",
+                    alignSelf: "center",
+
+                }}>
+                    <TouchableOpacity onPress={onModalClick}
+
+                        style={{
+                            padding: moderateScale(30),
+                            backgroundColor: colorsPath.purple,
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: 8,
+
+                        }}
+                    >
+                        <Image source={imagePath.icTick} />
+                        <Text style={{
+                            textAlign: "center",
+                            color: colorsPath.white,
+                            fontWeight: "bold",
+                            marginTop: moderateScaleVertical(8)
+                        }}>
+                            Your reminder has {"\n"}  been added
+                        </Text>
+
+                    </TouchableOpacity>
                 </View>
 
-                
+
             </Modal>
         </View>
     )

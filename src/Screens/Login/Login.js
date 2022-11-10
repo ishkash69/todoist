@@ -39,6 +39,9 @@ const Login = ({ navigation, routes }) => {
             </View>
             <View style={styles.buttonContainer}>
                 <ButtonComp
+                onPress={()=>{
+                    navigation.navigate(navigationStrings.HOME)
+                }}
                     title={"Log In"}
                 />
             </View>

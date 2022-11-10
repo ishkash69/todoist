@@ -28,6 +28,7 @@ return(
         placeholder={placeholder}
         fontSize={textScale(16)}
         secureTextEntry={visible}
+        onChangeText={onChangeText}
         />
         <TouchableOpacity onPress={click}>
         {visible?<Image style={styles.imageStyle}

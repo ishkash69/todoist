@@ -11,14 +11,16 @@ const ButtonComp = (
 
     {
         title,
-        onPress
+        buttonStyle,
+        buttonText,
+        onPress=()=>{}
     }
 ) => {
     return (
 
         <TouchableOpacity onPress={onPress}
-        style={styles.container}>
-            <Text style={styles.txtStyle}>{title}</Text>
+        style={{...styles.container,...buttonStyle}}>
+            <Text style={{...styles.txtStyle,...buttonText}}>{title}</Text>
         </TouchableOpacity>
     );
 };

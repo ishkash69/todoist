@@ -7,9 +7,10 @@ import styles from "./OnBoarding.style"
 import Swiper from 'react-native-swiper'
 import imagePath from '../../constants/imagePath'
 import { moderateScale, moderateScaleVertical } from '../../styles/resposnsiveSize'
+import navigationStrings from '../../constants/navigationStrings'
 
 
-const OnBoarding =()=>{
+const OnBoarding =({navigation, routes})=>{
     return(
         <View style={styles.container}>
             <HeaderComp text={"Todoist"}/>
@@ -42,7 +43,11 @@ const OnBoarding =()=>{
             
 
            <View style={styles.buttonContainer}>
-           <ButtonComp title={"Sign Up"}/>
+           <ButtonComp
+           onPress={()=>{
+            navigation.navigate(navigationStrings.SIGNUP)
+           }}
+           title={"Sign Up"}/>
            </View>
 
             <View style={styles.AlreadyHave}>
@@ -50,7 +55,11 @@ const OnBoarding =()=>{
                     <Text>
                         Already have an account?
                     </Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={()=>{
+                        navigation.navigate(navigationStrings.LOGIN)
+                    }}
+                    >
                         <Text style={{ color: colorsPath.purple, fontWeight: "bold" }}> Log In</Text>
                     </TouchableOpacity>
                 </View>

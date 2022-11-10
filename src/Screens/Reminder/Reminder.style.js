@@ -32,7 +32,8 @@ export const styles = StyleSheet.create({
     txtContainer: {
         color: colorsPath.black,
         padding: moderateScale(24),
-        marginTop: moderateScaleVertical(16)
+        marginTop: moderateScaleVertical(16),
+        height:moderateScale(150)
     },
     details: {
         backgroundColor: colorsPath.white,
