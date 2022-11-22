@@ -8,6 +8,9 @@ import { moderateScale, moderateScaleVertical } from "../../styles/resposnsiveSi
 import styles from "./Home.style"
 import * as Progress from 'react-native-progress';
 import { useSelector } from "react-redux";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import store from "../../redux/store";
+import { storeData, todo } from "../../redux/actions/actions";
 
 
 const Home = ({ navigation, route }) => {
@@ -15,9 +18,25 @@ const Home = ({ navigation, route }) => {
     const data = useSelector(myData=> myData.todoData)
     console.log("this is data in Home Screen",data)
     
-    // useEffect(()=>{
 
-    // },[data])
+    useEffect(()=>{
+      getData()
+    },[])
+  
+    const getData = async ()=>{
+      try {
+        const jsonValue = await AsyncStorage.getItem("reminder")
+        console.log(JSON.parse(jsonValue),"jsonvalue------>")
+        let value = JSON.parse(jsonValue)
+     
+  
+        if(!!value){
+          store.dispatch(todo(value))
+        }
+      } catch (error) {
+        console.log(error,"error raised in the app.js")
+      }
+    }
     
     const renderItem = ({ item, index }) => {
         console.log("item in home screen",item)

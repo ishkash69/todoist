@@ -5,7 +5,8 @@ export default{
     HOME:"HOME",
     REMINDER:"REMINDER",
     BTM:"BTM",
-    CLOCK:"CLOCK",
+    POST:"POST",
     CALENDER:"CALENDER",
-    PROFILE:"PROFILE"
+    PROFILE:"PROFILE",
+    ITEM_DETAILS:"ITEM_DETAILS"
 }

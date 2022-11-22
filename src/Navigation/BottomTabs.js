@@ -22,14 +22,15 @@ const BottomTabs = () => {
                 }
             }} name={navigationStrings.HOME} component={Screens.Home} />
             <Tab.Screen options={{
+                // tabBarStyle: { display: "none" },
                 tabBarIcon: ({ route, focused }) => {
                     return (
-                        <Image style={{ tintColor: focused ? colorsPath.primaryColor : null }} source={imagePath.icAlarm} />
+                        <Image style={{ tintColor: focused ? colorsPath.purple : null }} source={imagePath.icAlarm} />
                     )
                 }
-            }} name={navigationStrings.CLOCK} component={Screens.Clock} />
+            }} name={navigationStrings.POST} component={Screens.Post} />
             <Tab.Screen  options={{
-                tabBarStyle: { display: "none" }, tabBarIconStyle: { position: 'absolute', bottom: moderateScaleVertical(20) }, tabBarIcon: ({ navigation,route, focused }) => {
+                tabBarStyle: { display: "none" }, tabBarIconStyle: { position: 'absolute', bottom: moderateScaleVertical(10) }, tabBarIcon: ({ navigation,route, focused }) => {
                    
                     return (
                         <Image style={{ marginBottom: moderateScaleVertical(60) }} source={imagePath.icPlus} />
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
             position: 'absolute',
             bottom: moderateScaleVertical(10),
             borderRadius: moderateScale(10),
-            height: moderateScaleVertical(60),
+            // height: moderateScaleVertical(60),
             marginHorizontal: moderateScale(24),
         },
     }

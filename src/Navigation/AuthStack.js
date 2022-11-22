@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import navigationStrings from '../constants/navigationStrings'
 import * as Screens from '../Screens'
+import BottomTabs from './BottomTabs'
 
 
 const AuthStack = (Stack) => {
@@ -11,6 +12,8 @@ const AuthStack = (Stack) => {
       <Stack.Screen name={navigationStrings.LOGIN} component={Screens.Login} />
       <Stack.Screen name={navigationStrings.SIGNUP} component={Screens.SignUp} />
       <Stack.Screen  name={navigationStrings.REMINDER} component={Screens.Reminder}/>
+      
+
     </>
   )
 }

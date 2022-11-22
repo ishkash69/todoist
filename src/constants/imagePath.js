@@ -16,7 +16,8 @@ export default {
     icTick:require('../assets/images/ic_tick.png'),
     icProfile:require('../assets/images/ic_account.png'),
     icGreenTick:require("../assets/images/ic_tick2.png"),
-    icSpinner:require('../assets/images/spinner.png')
+    icSpinner:require('../assets/images/spinner.png'),
+    icBin:require('../assets/images/icBin.png')
 
 
 }

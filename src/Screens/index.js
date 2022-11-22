@@ -5,5 +5,6 @@ export {default as Reminder} from "./Reminder/Reminder"
 export {default as Home} from "./Home/Home"
 export {default as Calender} from './Calender/Calender'
 export {default as Profile} from './Profile/Profile'
-export {default as Clock} from './Clock/Clock'
+export {default as Post} from './Post/Post'
+export {default as ItemDetails} from './ItemDetails/ItemDetails'
 

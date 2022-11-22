@@ -7,7 +7,7 @@ import { HeaderComp } from "../../Components/HeaderComp";
 import colorsPath from "../../constants/colorsPath";
 import imagePath from "../../constants/imagePath";
 import navigationStrings from "../../constants/navigationStrings";
-import { todo } from "../../redux/actions";
+import { todo } from "../../redux/actions/actions";
 import store from "../../redux/store";
 import { moderateScale, moderateScaleVertical } from "../../styles/resposnsiveSize";
 import { styles } from "./Reminder.style";
@@ -19,21 +19,37 @@ const Reminder = ({ navigation, route }) => {
 
     console.log("todo data", data)
 
-    const[title, setTitle]=useState('')
-    const[notes, setNotes]=useState('')
+    const [title, setTitle] = useState('')
+    const [notes, setNotes] = useState('')
 
     const [isModalVisible, setModal] = useState(false)
     const onAdd = () => {
-        setModal(!isModalVisible)
+        if (title == "" && notes == "") {
+            alert("Please fill all the Fields")
+            return
+        }
+        else if (title == "") {
+            alert('Please enter Title')
+            return
+        }
+        else if (notes == "") {
+            alert('pleae enter Notes')
+            return
+        }
+        else {
+            setModal(!isModalVisible)
+        }
+
+
     }
     const onModalClick = () => {
-        store.dispatch(todo({title,notes}))
+        store.dispatch(todo({ title, notes }))
         setModal(!isModalVisible)
         // navigation.navigate(navigationStrings.HOME)
     }
 
 
-    
+
 
     return (
         <View style={styles.container}>
@@ -50,9 +66,9 @@ const Reminder = ({ navigation, route }) => {
                 <TextInput style={{ color: colorsPath.black, padding: 24 }}
                     placeholder="Title"
                     value={title}
-                    onChangeText={(title)=>{
-                        setTitle({title:title})
-                        console.log('this is title===>>><><>',title)
+                    onChangeText={(title) => {
+                        setTitle({ title })
+                        console.log('this is title===>>><><>', title)
                     }}
 
 
@@ -62,9 +78,9 @@ const Reminder = ({ navigation, route }) => {
                     multiline={true}
                     placeholder="Notes"
                     value={notes}
-                    onChangeText={(notes)=>{
-                        setNotes({notes:notes})
-                        console.log('this is notes===>>><><>',notes)
+                    onChangeText={(notes) => {
+                        setNotes({ notes })
+                        console.log('this is notes===>>><><>', notes)
                     }}
 
                 />

@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import colorsPath from "./src/constants/colorsPath";
 import Routes from "./src/Navigation/Routes";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "./src/redux/store";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { storeData } from "./src/redux/actions/actions";
 
 
 const App =()=>{
+ 
+
   return(
     <SafeAreaView style={styles.container}>
       <Provider store={store}>
@@ -22,3 +27,4 @@ const styles = StyleSheet.create({
   }
 })
 export default App
+

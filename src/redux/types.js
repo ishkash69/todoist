@@ -1,3 +1,5 @@
 export default {
-    TODO:"TODO"
+    TODO: "TODO",
+    PRODUCT: "PRODUCT",
+    STORE_DATA: 'STORE_DATA'
 }
