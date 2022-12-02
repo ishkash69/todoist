@@ -6,9 +6,9 @@ export function todo(data) {
         payload: data
     }
 }
-// export function storeData(data){
-//     return{
-//         type: types.STORE_DATA,
-//         payload: data
-//     }
-// }
+export function storeData(data){
+    return{
+        type: types.STORE_DATA,
+        payload: data
+    }
+}

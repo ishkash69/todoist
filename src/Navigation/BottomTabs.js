@@ -30,8 +30,9 @@ const BottomTabs = () => {
                 }
             }} name={navigationStrings.POST} component={Screens.Post} />
             <Tab.Screen  options={{
-                tabBarStyle: { display: "none" }, tabBarIconStyle: { position: 'absolute', bottom: moderateScaleVertical(10) }, tabBarIcon: ({ navigation,route, focused }) => {
-                   
+                tabBarStyle: { display: "none" }, 
+                tabBarIconStyle: { position: 'absolute', bottom: moderateScaleVertical(10) }, 
+                tabBarIcon: ({ navigation,route, focused }) => {                   
                     return (
                         <Image style={{ marginBottom: moderateScaleVertical(60) }} source={imagePath.icPlus} />
                     )

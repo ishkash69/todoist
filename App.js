@@ -8,9 +8,14 @@ import store from "./src/redux/store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { storeData } from "./src/redux/actions/actions";
 
+import {requestUserPermission,notificationListner} from "./src/utils/notificationService"
 
 const App =()=>{
  
+  useEffect(()=>{
+    requestUserPermission()
+    notificationListner()
+  })
 
   return(
     <SafeAreaView style={styles.container}>

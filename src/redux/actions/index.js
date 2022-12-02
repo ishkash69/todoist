@@ -1,7 +1,8 @@
 import * as products from "./products"
-import { todo } from "./actions"
+import { todo,storeData } from "./actions"
 
 export default {
     ...products,
-    ...todo
+    ...todo,
+    ...storeData
 }

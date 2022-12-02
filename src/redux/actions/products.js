@@ -1,5 +1,5 @@
-import { PRODUCTS, PRODUCTDETAILS } from "../../config/urls";
-import { apiGet } from "../../utils/utils";
+import { PRODUCTS, PRODUCTS_DELETE } from "../../config/urls";
+import { apiDelete, apiGet } from "../../utils/utils";
 
 export const allProducts = (query = "") => {
     return new Promise((resolve, reject) => {
@@ -22,4 +22,8 @@ export const productDetails = (id) => {
                 return reject(error)
             })
     })
+}
+
+export const deleteProducts = (id) => {
+    return apiDelete(PRODUCTS_DELETE + `${id}`)
 }

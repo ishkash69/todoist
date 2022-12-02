@@ -15,9 +15,9 @@ import { styles } from "./Reminder.style";
 
 
 const Reminder = ({ navigation, route }) => {
-    const data = useSelector(myData => myData.todoData)
+    const data = useSelector(myData => myData.reducer.todoData)
 
-    console.log("todo data", data)
+    // console.log("todo data", data)
 
     const [title, setTitle] = useState('')
     const [notes, setNotes] = useState('')
@@ -43,7 +43,7 @@ const Reminder = ({ navigation, route }) => {
 
     }
     const onModalClick = () => {
-        store.dispatch(todo({ title, notes }))
+        store.dispatch(todo({title,notes}))
         setModal(!isModalVisible)
         // navigation.navigate(navigationStrings.HOME)
     }
@@ -68,7 +68,7 @@ const Reminder = ({ navigation, route }) => {
                     value={title}
                     onChangeText={(title) => {
                         setTitle({ title })
-                        console.log('this is title===>>><><>', title)
+                        // console.log('this is title===>>><><>', title)
                     }}
 
 
@@ -80,7 +80,7 @@ const Reminder = ({ navigation, route }) => {
                     value={notes}
                     onChangeText={(notes) => {
                         setNotes({ notes })
-                        console.log('this is notes===>>><><>', notes)
+                        // console.log('this is notes===>>><><>', notes)
                     }}
 
                 />

@@ -15,8 +15,8 @@ import { storeData, todo } from "../../redux/actions/actions";
 
 const Home = ({ navigation, route }) => {
 
-    const data = useSelector(myData=> myData.todoData)
-    console.log("this is data in Home Screen",data)
+    const data = useSelector(myData=> myData.reducer.todoData)
+    // console.log("this is data in Home Screen",data)
     
 
     useEffect(()=>{
@@ -25,21 +25,25 @@ const Home = ({ navigation, route }) => {
   
     const getData = async ()=>{
       try {
+        
         const jsonValue = await AsyncStorage.getItem("reminder")
-        console.log(JSON.parse(jsonValue),"jsonvalue------>")
+        
         let value = JSON.parse(jsonValue)
+        // console.log(value,"jsonvalue------>")
+       
      
   
         if(!!value){
-          store.dispatch(todo(value))
+         store.dispatch(storeData(value))
+          
         }
       } catch (error) {
-        console.log(error,"error raised in the app.js")
+        // console.log(error,"error raised in the app.js")
       }
     }
     
     const renderItem = ({ item, index }) => {
-        console.log("item in home screen",item)
+        // console.log("item in home screen",item)
         return (
             <View style={styles.flatView}>
                 <View style={

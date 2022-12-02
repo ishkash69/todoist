@@ -59,6 +59,11 @@ const Post = ({ navigation, route }) => {
     navigation.navigate(navigationStrings.ITEM_DETAILS, { id: item.id })
   }
 
+  const onDelete = (item) => {
+    let remainingData = data.filter((itemId)=>itemId.id!==item.id)
+    setData(remainingData)
+  }
+
   const renderItem = ({ item, index }) => {
     return (
       <TouchableOpacity
@@ -81,7 +86,11 @@ const Post = ({ navigation, route }) => {
         <View style={{ marginLeft: 10, flex: 1 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Text style={{ fontSize: 16, fontWeight: '500' }}>{item?.title}</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                        onPress={()=>{
+                          onDelete(item)
+                        }}
+                        >
                             <Image style={{
                                 height: 20, width: 20, tintColor: 'red',
                                 position: "absolute",

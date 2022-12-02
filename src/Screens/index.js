@@ -7,4 +7,6 @@ export {default as Calender} from './Calender/Calender'
 export {default as Profile} from './Profile/Profile'
 export {default as Post} from './Post/Post'
 export {default as ItemDetails} from './ItemDetails/ItemDetails'
+export {default as GoogleSignIn} from './SignUp/GoogleSignIn'
+export {default as FacebookSignIn} from "./SignUp/FacebookSignIn"
 

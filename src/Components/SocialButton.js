@@ -6,10 +6,13 @@ import colorsPath from "../constants/colorsPath";
 const SocialComp =({
     socialIcon,
     imageStyle,
+    onPress= ()=>{}
 })=>{
     return(
         <View style={styles.container}>
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={onPress}
+            >
                 <Image style={{...imageStyle}} source={socialIcon}/>   
             </TouchableOpacity>
         </View>

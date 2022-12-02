@@ -9,9 +9,9 @@ const storeData = async (value) => {
     try {
       const jsonValue = JSON.stringify(value)
       await AsyncStorage.setItem("reminder",jsonValue)
-      console.log("data stored in reducer",jsonValue)
+    //   console.log("data stored in reducer",jsonValue)
     } catch (e) {
-     console.log('error in storing data',e)
+    //  console.log('error in storing data',e)
     }
   }
 
@@ -19,11 +19,11 @@ const storeData = async (value) => {
 
 
 export function reducer(state = initial_state, action) {
-    console.log("data in reducer", action.payload)
+    // console.log("data in reducer", action.payload)
     switch (action.type) {
         case types.TODO: {
             let data = action.payload
-            console.log("action payload", data)
+            // console.log("action payload", data)
             let arr = [...state.todoData, data]
             storeData(arr)
 
@@ -32,12 +32,12 @@ export function reducer(state = initial_state, action) {
             }
 
         }
-        // case types.STORE_DATA: {
-        //     let data = action.payload
-        //     console.log("stored data in reducer", data)
+        case types.STORE_DATA: {
+            let data = action.payload
+            // console.log("stored data in reducer", data)
 
-        //     return{...state,todoData:data}
-        // }
+            return{...state,todoData:data}
+        }
 
 
         default:

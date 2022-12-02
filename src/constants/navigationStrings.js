@@ -8,5 +8,7 @@ export default{
     POST:"POST",
     CALENDER:"CALENDER",
     PROFILE:"PROFILE",
-    ITEM_DETAILS:"ITEM_DETAILS"
+    ITEM_DETAILS:"ITEM_DETAILS",
+    GOOGLE_SIGNIN:"GoogleSignIn",
+    FACEBOOK_SIGNIN:"FacebookSignIn"
 }

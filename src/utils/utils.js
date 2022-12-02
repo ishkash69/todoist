@@ -34,3 +34,6 @@ export async function apiReq(
 export function apiGet(endPoint, data = {}) {
     return apiReq(endPoint, data, 'get')
 }
+export function apiDelete(endPoint,data = {}){
+    return apiReq(endPoint, data, 'get')
+}

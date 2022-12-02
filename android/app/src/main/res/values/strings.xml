@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">todoist</string>
+
+<string name="facebook_app_id">508648244535118</string>
+<string name="fb_login_protocol_scheme">fb508648244535118</string>
+<string name="facebook_client_token">56789</string>
+
+
 </resources>
