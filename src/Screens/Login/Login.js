@@ -35,6 +35,8 @@ const Login = ({ navigation, routes }) => {
                     placeholder={"E-mail Address"}
                     value={email}
                     onChangeText={(text)=>setEmail(text)}
+                    keyboardType={"email-address"}
+
                 />
 
                 <TextInputComp
