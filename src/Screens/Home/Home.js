@@ -49,13 +49,13 @@ const Home = ({ navigation, route }) => {
                 <View style={
                     styles.flatContentView}>
                     <View>
-                        <Text>{item.title.title}</Text>
-                        <Text>{item.notes.notes}</Text>
+                        <Text style={{color: colorsPath.black}}>{item.title.title}</Text>
+                        <Text style={{color: colorsPath.black}}>{item.notes.notes}</Text>
 
                     </View>
                     <View style={styles.flatContentTimeContainer}>
                         <View style={styles.dateAndTimeStyle}>
-                            <Text>
+                            <Text style={{color: colorsPath.black}}>
                                 {item.time}
                             </Text>
                         </View>
@@ -76,7 +76,7 @@ const Home = ({ navigation, route }) => {
                 textStyle={styles.headerText}
                 headerStyle={styles.headerStyle}
             />
-            <Text style={{ marginTop: moderateScaleVertical(14), }}>
+            <Text style={{ marginTop: moderateScaleVertical(14),color: colorsPath.black }}>
                 Let's start with today's task</Text>
             <View style={styles.completedTaskView}>
                 <View style={{ paddingLeft: moderateScale(4) }}>
@@ -88,7 +88,7 @@ const Home = ({ navigation, route }) => {
                             source={imagePath.icGreenTick} />
                         <Text style={styles.greenText}>5/10
                         </Text>
-                        <Text style={{ marginLeft: 3 }}>
+                        <Text style={{ marginLeft: 3,color: colorsPath.black }}>
                             Task Completed
                         </Text>
                     </View>
@@ -133,7 +133,7 @@ const Home = ({ navigation, route }) => {
                 <Text></Text>
             </View>
             <View style={styles.remindersView}>
-                <Text style={{ fontWeight: "bold" }} >
+                <Text style={{ fontWeight: "bold", color: colorsPath.black }} >
                     Reminders
                 </Text>
                 <Text style={{ fontWeight: "bold", color: colorsPath.purple }} >

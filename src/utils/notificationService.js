@@ -27,7 +27,7 @@ const getFcmToken = async() =>{
             }
         } catch (error) {
             console.log(error,"error raised in the fcm token")
-            alert("error error error")
+            // alert("error error error")
         }
     }
 }

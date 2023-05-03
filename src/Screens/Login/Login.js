@@ -8,6 +8,8 @@ import imagePath from "../../constants/imagePath";
 import navigationStrings from "../../constants/navigationStrings";
 import { moderateScaleVertical, } from "../../styles/resposnsiveSize";
 import styles from "./Login.style";
+import actions from "../../redux/actions";
+import store from "../../redux/store";
 const Login = ({ navigation, routes }) => {
     return (
         <View style={styles.container}>
@@ -40,7 +42,7 @@ const Login = ({ navigation, routes }) => {
             <View style={styles.buttonContainer}>
                 <ButtonComp
                 onPress={()=>{
-                    navigation.navigate(navigationStrings.HOME)
+                    store.dispatch(actions.login(true))
                 }}
                     title={"Log In"}
                 />

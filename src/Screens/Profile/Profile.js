@@ -1,5 +1,8 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableHighlight } from 'react-native'
 import React, { useEffect } from 'react'
+import store from '../../redux/store'
+import actions from '../../redux/actions'
+import colorsPath from '../../constants/colorsPath'
 
 const Profile = () => {
 
@@ -21,7 +24,14 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Profile</Text>
+      <TouchableHighlight
+      onPress={()=>{
+        store.dispatch(actions.login(false))
+      }}
+      >
+      <Text style={{color: colorsPath.black}}>Log out</Text>
+      </TouchableHighlight>
+   
     </View>
   )
 }

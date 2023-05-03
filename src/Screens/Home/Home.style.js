@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
         backgroundColor: colorsPath.lighPurple,
         paddingVertical: moderateScaleVertical(8),
         paddingHorizontal: moderateScale(20),
+        color: colorsPath.black
 
     },
     remindersView:{
