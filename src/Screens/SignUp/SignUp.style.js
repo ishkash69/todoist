@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     AlreadyHave: {
         justifyContent: 'flex-end',
         flex: 1,
-        marginBottom: moderateScaleVertical(1),
+        marginVertical: moderateScaleVertical(10),
         alignItems: "center"
     },
 

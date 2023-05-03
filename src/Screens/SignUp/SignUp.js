@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import ButtonComp from "../../Components/ButtonComp";
 import { HeaderComp } from "../../Components/HeaderComp";
 import SocialComp from "../../Components/SocialButton";
@@ -116,6 +116,7 @@ const isLogin = fbUserInfo
             <HeaderComp
                 text={"Todoist"}
             />
+            <ScrollView showsVerticalScrollIndicator={false}>
             <Text style={styles.textStyle}>SignUp</Text>
 
             <View style={styles.inputContainer}>
@@ -125,16 +126,19 @@ const isLogin = fbUserInfo
                     onChangeText={(text)=>setName(text)}
                 />
                 <TextInputComp
+                keyboardType={'number-pad'}
                     placeholder={"Phone Number"}
                     inputStyle={styles.inputStyle}
                     value= {phoneNumber}
                     onChangeText={(text)=>setPhone(text)}
+                    
                 />
                 <TextInputComp
                     placeholder={"E-mail Address"}
                     inputStyle={styles.inputStyle}
                     value= {email}
                     onChangeText={(text)=>setEmail(text)}
+                    keyboardType={"email-address"}
                 />
                 <TextInputComp
                     placeholder={"Password"}
@@ -148,7 +152,7 @@ const isLogin = fbUserInfo
             </View>
 
             <TouchableOpacity style={styles.forgotpw}   >
-                <Text >Forgot Password</Text>
+                <Text style={{color: colorsPath.black}} >Forgot Password</Text>
             </TouchableOpacity>
 
             <View style={styles.buttonContainer}>
@@ -203,6 +207,7 @@ const isLogin = fbUserInfo
                     </TouchableOpacity>
                 </View>
             </View>
+            </ScrollView>
 
 
 

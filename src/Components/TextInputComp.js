@@ -13,7 +13,8 @@ export const TextInputComp =({
     secure,
     secondImage,
     value,
-    onChangeText=()=>{}
+    onChangeText=()=>{},
+    keyboardType
 })=>{
 
     const [visible,setVisible]=useState(false)
@@ -32,6 +33,8 @@ return(
         onChangeText={onChangeText}
         placeholderTextColor={colorsPath.black}
         value={value}
+        keyboardType={keyboardType}
+        // keyboardType="number-pad"
         />
         <TouchableOpacity onPress={click}>
         {!visible?<Image style={styles.imageStyle}
