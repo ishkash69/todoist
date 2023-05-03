@@ -12,10 +12,11 @@ export const TextInputComp =({
     image,
     secure,
     secondImage,
+    value,
     onChangeText=()=>{}
 })=>{
 
-    const [visible,setVisible]=useState(!visible)
+    const [visible,setVisible]=useState(false)
     const click =(()=>{
         setVisible(!visible)
     })
@@ -24,14 +25,16 @@ return(
     style={{...styles.container,...inputStyle}}
     >
         <TextInput
-        style={{flex:1}}
+        style={{flex:1,color: colorsPath.black}}
         placeholder={placeholder}
         fontSize={textScale(16)}
         secureTextEntry={visible}
         onChangeText={onChangeText}
+        placeholderTextColor={colorsPath.black}
+        value={value}
         />
         <TouchableOpacity onPress={click}>
-        {visible?<Image style={styles.imageStyle}
+        {!visible?<Image style={styles.imageStyle}
         source={image} 
         />: <Image style={{height:20,width:20,tintColor:'grey'}}
         source={secondImage}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import ButtonComp from "../../Components/ButtonComp";
 import { HeaderComp } from "../../Components/HeaderComp";
@@ -11,6 +11,17 @@ import styles from "./Login.style";
 import actions from "../../redux/actions";
 import store from "../../redux/store";
 const Login = ({ navigation, routes }) => {
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    const onLogin = ()=>{
+        if(!email || !password){
+            alert('please enter all the fields')
+            return
+        }else{
+            store.dispatch(actions.login(true))
+        }
+    }
+    console.log(email)
     return (
         <View style={styles.container}>
 
@@ -22,7 +33,8 @@ const Login = ({ navigation, routes }) => {
             <View style={styles.inputContainer}>
                 <TextInputComp
                     placeholder={"E-mail Address"}
-                    
+                    value={email}
+                    onChangeText={(text)=>setEmail(text)}
                 />
 
                 <TextInputComp
@@ -30,20 +42,20 @@ const Login = ({ navigation, routes }) => {
                     inputStyle={styles.inputStyle}
                    image={imagePath.ic_eye_hide}
                     secondImage={imagePath.ic_eye_view}
+                    value={password}
+                    onChangeText={(text)=>setPassword(text)}
                    
                 />
             </View>
 
             <View style={styles.forgetpw}>
                 <TouchableOpacity  >
-                    <Text >Forgot Password</Text>
+                    <Text style={{color: colorsPath.black}} >Forgot Password</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.buttonContainer}>
                 <ButtonComp
-                onPress={()=>{
-                    store.dispatch(actions.login(true))
-                }}
+                onPress={onLogin}
                     title={"Log In"}
                 />
             </View>
@@ -52,7 +64,7 @@ const Login = ({ navigation, routes }) => {
 
             <View style={styles.donthaveAccount}>
                 <View style={{ flexDirection: "row" }}>
-                    <Text>
+                    <Text style={{color: colorsPath.black}}>
                         Don't have an account?
                     </Text>
                     <TouchableOpacity

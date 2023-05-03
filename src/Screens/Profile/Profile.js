@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import store from '../../redux/store'
 import actions from '../../redux/actions'
 import colorsPath from '../../constants/colorsPath'
+import { moderateScale, width } from '../../styles/resposnsiveSize'
 
 const Profile = () => {
 
@@ -25,11 +26,12 @@ const Profile = () => {
   return (
     <View style={styles.container}>
       <TouchableHighlight
+      style={styles.touchableHighlight}
       onPress={()=>{
         store.dispatch(actions.login(false))
       }}
       >
-      <Text style={{color: colorsPath.black}}>Log out</Text>
+      <Text style={{color: colorsPath.white}}>Log out</Text>
       </TouchableHighlight>
    
     </View>
@@ -42,5 +44,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  touchableHighlight: {
+    height: moderateScale(40),
+    width: width/1.1,
+    backgroundColor: colorsPath.purple,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius: moderateScale(8)
   }
 })

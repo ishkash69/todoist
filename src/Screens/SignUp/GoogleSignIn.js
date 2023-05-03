@@ -16,6 +16,7 @@ const GoogleSignIn = ({navigation,route}) => {
         try {
           await GoogleSignin.signOut();
           setGoogleInfo({userInfo:null})
+          navigation.goBack()
         } catch (error) {
           console.error(error);
         }
@@ -23,18 +24,18 @@ const GoogleSignIn = ({navigation,route}) => {
     
     return (
         <View style={styles.container}>
-            <Text>
+            <Text style={{color: colorsPath.black}}>
                 Google integration
             </Text>
             <Image style={{height:100,width:100,borderRadius:50,marginTop:20}} source={{uri: userInfo.photo}}/> 
-             <Text>{`${userInfo.givenName} ${userInfo.familyName}`}</Text>
+             <Text style={{color: colorsPath.black}}>{`${userInfo.givenName} ${userInfo.familyName}`}</Text>
 
             <TouchableOpacity
             onPress={()=>{
                 signOut()
             }}
             style={{marginTop:20,borderWidth:1,padding:14}}>
-                <Text>LogOut from Google</Text>
+                <Text style={{color: colorsPath.black}} >LogOut from Google</Text>
             </TouchableOpacity>
 
            

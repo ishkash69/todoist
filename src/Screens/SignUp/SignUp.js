@@ -16,6 +16,19 @@ const SignUp = ({navigation,route}) => {
     
     const[userInfo , setUserInfo]=useState()
     const[fbUserInfo, setFbUserInfo] = useState()
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    const [name, setName] = useState()
+    const [phoneNumber, setPhone] = useState()
+
+    const onSignUp = ()=>{
+        if(!email || !password||!phoneNumber||!name){
+            alert('please enter all the fields')
+            return
+        }else{
+          navigation.navigate(navigationStrings.LOGIN)
+        }
+    }
 
     console.log(fbUserInfo," fb user info")
 
@@ -108,20 +121,29 @@ const isLogin = fbUserInfo
             <View style={styles.inputContainer}>
                 <TextInputComp
                     placeholder={"Name"}
+                    value= {name}
+                    onChangeText={(text)=>setName(text)}
                 />
                 <TextInputComp
                     placeholder={"Phone Number"}
                     inputStyle={styles.inputStyle}
+                    value= {phoneNumber}
+                    onChangeText={(text)=>setPhone(text)}
                 />
                 <TextInputComp
                     placeholder={"E-mail Address"}
                     inputStyle={styles.inputStyle}
+                    value= {email}
+                    onChangeText={(text)=>setEmail(text)}
                 />
                 <TextInputComp
                     placeholder={"Password"}
                     inputStyle={styles.inputStyle}
                     image={imagePath.ic_eye_hide}
+                    // secure={}
                     secondImage={imagePath.ic_eye_view}
+                    value= {password}
+                    onChangeText={(text)=>setPassword(text)}
                 />
             </View>
 
@@ -131,20 +153,18 @@ const isLogin = fbUserInfo
 
             <View style={styles.buttonContainer}>
                 <ButtonComp
-                onPress={()=>{
-                    navigation.navigate(navigationStrings.LOGIN)
-                }}
+                onPress={onSignUp}
                     title={"Sign Up"}
                 />
             </View>
 
             <View style={styles.ortxt}>
-                <Text style={{ fontSize: textScale(18) }}>
+                <Text style={{ fontSize: textScale(18),color: colorsPath.black }}>
                     OR
                 </Text>
             </View>
             <View style={styles.SignUpWith} >
-                <Text>
+                <Text style={{color: colorsPath.black}}>
                     Signup with
                 </Text>
             </View>
@@ -171,7 +191,7 @@ const isLogin = fbUserInfo
 
             <View style={styles.AlreadyHave}>
                 <View style={{ flexDirection: "row" }}>
-                    <Text>
+                    <Text style={{color: colorsPath.black}}>
                         Already have an account?
                     </Text>
                     <TouchableOpacity

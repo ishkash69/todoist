@@ -52,7 +52,7 @@ const OnBoarding =({navigation, routes})=>{
 
             <View style={styles.AlreadyHave}>
                 <View style={{ flexDirection: "row" }}>
-                    <Text>
+                    <Text style={{color: colorsPath.black}}>
                         Already have an account?
                     </Text>
                     <TouchableOpacity
